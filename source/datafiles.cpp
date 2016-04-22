@@ -44,7 +44,6 @@ void inData::ReadDataSize(ifstream &fp, size_t &cols, size_t &rows) {
 	istringstream is(line);
 	vector<double> v;
 	double n;
-	int test;
 	int i = 1;
 	while (is >> n) {
 		v.push_back(n);
