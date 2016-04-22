@@ -5,10 +5,8 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
-
 #include "..\Eigen\Dense"
 #include "..\Eigen\Core"
-
 #include "constants.h"
 #include "mymath.h"
 #include "DNA.h"
@@ -37,7 +35,6 @@ namespace patch
 using namespace Eigen;
 using namespace std;
 using namespace constants;
-
 void inData::ReadDataSize(ifstream &fp, size_t &cols, size_t &rows) {
 	string line;
 	getline(fp, line);

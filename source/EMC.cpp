@@ -37,7 +37,6 @@ int main(int argc, const char **argv) {
 	//omp_set_num_threads(12);
 	cout << "Hej" << endl;
 	species sp(argc,argv);
-	
 	rng.seed(6);
 	//Start algorithm
 	sp.count.evolution_tic = clock();				//Start timer
