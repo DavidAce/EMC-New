@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 #include <string.h>
 #include <omp.h>
 #include <random>
@@ -35,7 +35,6 @@ int main(int argc, const char **argv) {
 	//Start up some files and folder for saving out
 	Eigen::initParallel();
 	//omp_set_num_threads(12);
-	cout << "Hej" << endl;
 	species sp(argc,argv);
 	rng.seed(6);
 	//Start algorithm

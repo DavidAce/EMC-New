@@ -1,7 +1,7 @@
 #ifndef MYMATH_H   
 #define MYMATH_H  
-#include "..\Eigen\Core"
-#include "..\Eigen\Dense"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 using namespace Eigen;
 extern void linspace(ArrayXd &,double, double, int);
 extern void logspace(ArrayXd &,double, double, int);

@@ -2,8 +2,8 @@
 #define SPECIES_H   //  #define this so the compiler knows it has been included
 #include <iostream>
 #include <vector>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 #include "personality.h"
 #include "population.h"
 #include "datafiles.h"

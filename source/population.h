@@ -2,8 +2,8 @@
 #ifndef POPULATION_H   // if x.h hasn't been included yet...
 #define POPULATION_H   //  #define this so the compiler knows it has been included
 #include <iostream>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 #include "personality.h"
 using namespace std;
 using namespace constants;

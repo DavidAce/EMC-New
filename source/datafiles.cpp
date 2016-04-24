@@ -5,8 +5,8 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 #include "constants.h"
 #include "mymath.h"
 #include "DNA.h"
@@ -105,7 +105,7 @@ inData::inData(const int argc,const char **argv) :	num_files	(argc-1),
 		folder = "data";
 		break;
 	}
-	std::system(mdir.c_str());
+	if(std::system(mdir.c_str())){}
 	int i = 0;
 
 	for (i = 0; i < num_files-1; i++) {
@@ -180,7 +180,7 @@ outData::outData() {
 		folder = "batch/data";
 		break;
 	}
-	std::system(mdir.c_str());
+	if(std::system(mdir.c_str())){}
 	for (int m = 0; m < M; m++) {
 		filename_guysData[m] = folder + "/parameters" + patch::to_string(m) +  ".dat";
 		filename_eliteGuysData[m] = folder + "/elitedata" + patch::to_string(m) + ".dat";

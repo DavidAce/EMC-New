@@ -6,8 +6,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 #include "constants.h"
 #include "personality.h"
 #include "datafiles.h"

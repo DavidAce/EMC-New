@@ -4,9 +4,12 @@ EXECNAME   	= EMC
 ###############################################
 #	compiler
 #
-CXX                     = g++
-OPT                     = -O3 -fopenmp -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
-LDFLAGS                 = -Wall -Werror -std=c++11 -Wno-deprecated-declarations
+#CXX                     = g++-5
+CXX                     = clang++-3.8
+#OPT                     = -O3 -fopenmp -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
+OPT                     = -fopenmp=libiomp5 -std=c++11
+LDFLAGS                 = -Wextra
+#LDFLAGS                 = -Wall -Werror -std=c++11 -Wno-deprecated-declarations
 CXXFLAGS    =   $(LDFLAGS) $(OPT)
 ###############################################
 
@@ -25,7 +28,9 @@ $(EXECNAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJDIR)/%.o: $(SOURCEDIR)/%.cpp
+	@mkdir -p $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
 
 
 # debugging compilation

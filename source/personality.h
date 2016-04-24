@@ -4,8 +4,8 @@
 #include <bitset>
 #include <iostream>
 #include <random>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
 #include "constants.h"
 #include "DNA.h"
 

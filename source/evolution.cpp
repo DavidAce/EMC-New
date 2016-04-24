@@ -4,9 +4,9 @@
 #include <iostream>
 #include <iomanip>
 #include <time.h>
-#include "..\Eigen\Dense"
-#include "..\Eigen\Core"
-#include "..\Eigen\Geometry"
+#include "../Eigen/Dense"
+#include "../Eigen/Core"
+#include "../Eigen/Geometry"
 #include "constants.h"
 #include "randomFunctions.h"
 #include "mymath.h"
