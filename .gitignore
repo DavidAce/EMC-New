@@ -1,4 +1,6 @@
 obj/
+.vscode/
 GPATH
 GTAGS
 GRTAGS
+EMC.exe
