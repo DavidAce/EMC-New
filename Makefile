@@ -1,16 +1,37 @@
+# check the hostname
+HN := $(shell /bin/hostname -s)
+
+# default compiler settings
+CXX         =   g++
+DEBUG       =   -g  -Wall -Werror # -ansi
+PROF        =   -pg	-fno-omit-frame-pointer -O2 -DNDEBUG -fno-inline-functions 
+LDFLAGS     =  -I Eigen -std=c++11 -Wno-deprecated-declarations
+OPT			=  -fopenmp -O3 -march=native -mno-avx #-DEIGEN_NO_DEBUG -DNDEBUG
+CXXFLAGS	=  $(LDFLAGS) $(OPT)
+
+
+###############################################
+#	Change compiler depending on the host machine
+#
+ifneq (,$(findstring ThinkPad,$(HN)))
+CXX         = g++
+OPT         = -O3 -fopenmp -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
+LDFLAGS     = -Wall -Werror -std=c++11 -Wno-deprecated-declarations
+CXXFLAGS    =   $(LDFLAGS) $(OPT)
+endif
+
+
 # set executable name
 EXECNAME   	= EMC
 
 ###############################################
-#	compiler
+#	clang compiler
 #
-#CXX                     = g++-5
-CXX                     = clang++-3.8
-#OPT                     = -O3 -fopenmp -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
-OPT                     = -fopenmp=libiomp5 -std=c++11
-LDFLAGS                 = -Wextra
-#LDFLAGS                 = -Wall -Werror -std=c++11 -Wno-deprecated-declarations
-CXXFLAGS    =   $(LDFLAGS) $(OPT)
+#CXX                     = g++
+#CXX                     = clang++-3.8
+#OPT                     = -fopenmp=libiomp5 -std=c++11
+#LDFLAGS                 = -Wextra
+#CXXFLAGS    =   $(LDFLAGS) $(OPT)
 ###############################################
 
 # Directory structure
@@ -41,19 +62,8 @@ db:
 prof:
 	$(CXX) $(SRC) $(LDFLAGS) $(PROF) -o $(EXECNAME).prof
 
-#depend: .depend
-#.depend: $(SRC)
-#	rm -f ./.depend
-#	$(CXX) -MM $^  >> ./.depend;
-
-#.PHONY: clean
 .PHONY: clean
+
 clean:
-	$(RM) -r $(OBJDIR)
-#clean:
-#	$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
-#dist-clean: clean
-#	$(RM) *~ ./.depend $(EXECNAME).prof $(EXECNAME).db $(EXECNAME).db.dSYM $(EXECNAME)
-
-#include .depend
