@@ -55,12 +55,13 @@ int species::champion_number() {
 
 void species::print_progress(){
 	count.generation++;
-	if (mod(count.generation, 100) == 0) {
+	if (mod(count.generation, 500) == 0) {
 		cout << fixed << setprecision(4);
 		cout << "\rGeneration... " << setw(7) << count.generation << " | Best Fitness H: ";
 		for (int m = 0; m < M; m++) {
 			cout << setw(7) << pop[m].bestguys[N_best - 1].H << " ";
 		}
+		cout << flush;
 		/*cout << " | H best: " << setw(7) << pop.bestguys[N_best - 1].H;
 		cout << " | H current: " << setw(7) << pop.guys[N - 1].H;
 		cout << " | Value: " << setw(7) << pop.bestguys[N_best - 1].value;*/

@@ -35,6 +35,8 @@ namespace patch
 using namespace Eigen;
 using namespace std;
 using namespace constants;
+
+
 void inData::ReadDataSize(ifstream &fp, size_t &cols, size_t &rows) {
 	string line;
 	getline(fp, line);
@@ -45,6 +47,7 @@ void inData::ReadDataSize(ifstream &fp, size_t &cols, size_t &rows) {
 	while (is >> n) {
 		v.push_back(n);
 	}
+	
 	cols = v.size();
 	while (getline(fp, line)) {
 		i++;
@@ -61,18 +64,16 @@ void inData::importData(ifstream &fp, string &fname, MatrixXd &mat) {
 	bool empty = !fp.tellg(); // true if empty file
 	fp.seekg(current, fp.beg); //restore stream position
 	if (fp.is_open() == false || empty == true) {
-		cout << "Error opening file: " << fname << endl;
+		cout << "Error opening file: " << fname <<" | Does it exist? Is Open: "<< fp.is_open()<< endl;
 		exit(1);
 	}
 	else {
 		//Read number of columns
 		size_t cols, rows;
 		ReadDataSize(fp, cols, rows);
-		cout << "Matrix Size: " << cols << " " << rows << endl;
-
 		unsigned int i, j;
 		mat.resize(rows, cols);
-
+		
 		for (i = 0; i < rows; i++) {
 			for (j = 0; j < cols; j++) {
 				fp >> mat(i, j);
@@ -86,37 +87,36 @@ inData::inData(const int argc,const char **argv) :	num_files	(argc-1),
 													filename	(new string[num_files]),
 													data		(new MatrixXd[num_files]){
 
-	cout << "Input files:	" << num_files << endl;
-	for (int i = 0; i < num_files; i++) {
-		cout << "File #" << i+1 << ":	" << argv[i + 1] << endl;
-	}
+
 	string mdir;
 	switch (os) {
 	case 0:
-		mdir = "mkdir -p data";
-		folder = "data";
+		mdir = "mkdir -p indata";
+		folder = "indata";
 		break;
 	case 1:
-		mdir = "mkdir data";
-		folder = "data";
+		mdir = "mkdir indata";
+		folder = "indata";
 		break;
 	case 2:
-		mdir = "mkdir -p data";
-		folder = "data";
+		mdir = "mkdir -p indata";
+		folder = "indata";
 		break;
 	}
 	if(std::system(mdir.c_str())){}
 	int i = 0;
-
-	for (i = 0; i < num_files-1; i++) {
+	cout << "Input files:	" << num_files << endl;
+	for (i = 0; i < num_files; i++) {
 		filename[i] += folder + "/";
 		filename[i].append(argv[i+1]);
+		cout << "File #" << i+1 << ":	" << filename[i] << " ";
 		importData(file[i], filename[i], data[i]);
+		cout << "		| Size :	" << data[i].rows() << " x " <<  data[i].cols() << endl;
+
 	}
-	filename[i] += folder + "/";
-	filename[i].append(argv[i + 1]);
-	importData(file[i], filename[i], bounds.all_bounds);
-	bounds.lower_bound = bounds.all_bounds.col(0);
+	i--;
+	bounds.all_bounds = data[i];
+	bounds.lower_bound =bounds.all_bounds.col(0);
 	bounds.upper_bound = bounds.all_bounds.col(1);
 }
 
@@ -164,20 +164,20 @@ void outData::print_to_file(species &sp) {
 }
 
 outData::outData() {
-	//Create folder for out storage
+	//Create folder for out data storage
 	string mdir;
 	switch (os) {
 	case 0:
-		mdir = "mkdir -p data";
-		folder = "batch/data";
+		mdir = "mkdir -p outdata";
+		folder = "outdata";
 		break;
 	case 1:
-		mdir = "mkdir ..\\data";
-		folder = "..\\data";
+		mdir = "mkdir ..\\outdata";
+		folder = "..\\outdata";
 		break;
 	case 2:
-		mdir = "mkdir -p data";
-		folder = "batch/data";
+		mdir = "mkdir -p outdata";
+		folder = "outdata";
 		break;
 	}
 	if(std::system(mdir.c_str())){}
