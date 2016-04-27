@@ -1,0 +1,9 @@
+Compilation : Use " make " to generate the binary "EMC"
+
+
+
+Excecution  : 
+Use " EMC [file0] [file1] [...] [fileN] " execute with binary with arguments [] 
+
+Put your input files in a folder named "indata". The data will be accessible in 
+

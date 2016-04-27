@@ -5,8 +5,8 @@ HN := $(shell /bin/hostname -s)
 CXX         =   g++
 DEBUG       =   -g  -Wall -Werror # -ansi
 PROF        =   -pg	-fno-omit-frame-pointer -O2 -DNDEBUG -fno-inline-functions 
-LDFLAGS     =  -I Eigen -std=c++11 -Wno-deprecated-declarations
-OPT			=  -fopenmp -O3 -march=native -mno-avx #-DEIGEN_NO_DEBUG -DNDEBUG
+LDFLAGS     =  -fopenmp -std=c++11 -Wno-deprecated-declarations
+OPT			=  -O3 -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
 CXXFLAGS	=  $(LDFLAGS) $(OPT)
 
 
@@ -15,8 +15,8 @@ CXXFLAGS	=  $(LDFLAGS) $(OPT)
 #
 ifneq (,$(findstring ThinkPad,$(HN)))
 CXX         = g++
-OPT         = -O3 -fopenmp -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
-LDFLAGS     = -Wall -Werror -std=c++11 -Wno-deprecated-declarations
+OPT         = -O3 -march=native -mno-avx -DEIGEN_NO_DEBUG -DNDEBUG
+LDFLAGS     = -Wall -Werror -fopenmp -std=c++11 -Wno-deprecated-declarations
 CXXFLAGS    =   $(LDFLAGS) $(OPT)
 endif
 
