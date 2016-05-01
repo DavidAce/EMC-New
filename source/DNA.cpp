@@ -28,6 +28,11 @@ bool DNA::operator==(DNA &target) { //Compare DNA and return true if equal
 	}
 	return isequal;
 }
+int DNA::operator()(int a) { 				//Return the bit at a.
+		int gene = a / geneLength;
+		int loci = a%geneLength;
+		return chromosomes[gene][geneLength - loci - 1];
+	}
 
 void DNA::flip_loci(const int a) {
 	//(loci)

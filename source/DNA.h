@@ -17,15 +17,11 @@ private:
 public:
 	DNA ();
 	DNA(bool);
-	bitset<geneLength> chromosomes[nGenes]; //Binary representatin
-	ArrayXd parameters;		//Decimal representation
+	bitset<geneLength> chromosomes[nGenes]; //Binary representation
+	ArrayXd parameters;						//Decimal representation
 
-	bool operator==(DNA&);
-	int operator()(int a) { //Return the bit at a.
-		int gene = a / geneLength;
-		int loci = a%geneLength;
-		return chromosomes[gene][geneLength - loci - 1];
-	}
+	bool operator == (DNA&);
+	int operator()(int); 
 	friend ostream &operator<<(std::ostream &os, DNA const &);
 	int length = geneLength*nGenes;
 	void flip_loci(const int);

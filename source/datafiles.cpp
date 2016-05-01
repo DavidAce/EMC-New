@@ -116,8 +116,8 @@ inData::inData(const int argc,const char **argv) :	num_files	(argc-1),
 
 	}
 	i--;
-	bounds.all_bounds = data[i];
-	bounds.lower_bound =bounds.all_bounds.col(0);
+	bounds.all_bounds  = data[i];
+	bounds.lower_bound = bounds.all_bounds.col(0);
 	bounds.upper_bound = bounds.all_bounds.col(1);
 }
 

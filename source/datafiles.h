@@ -30,8 +30,6 @@ class inData {
 private:
 	void ReadDataSize(ifstream &, size_t &, size_t &);
 	void importData(ifstream &, string &, MatrixXd& );
-
-
 public:
 	inData(const int ,const char **);
 	const int num_files;
