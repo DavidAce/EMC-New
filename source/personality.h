@@ -26,7 +26,6 @@ public:
 	double value;						//Actual fitting-value
 	int generation;						//Generation when DNA first emerged
 	DNA genome;							//Contains binary and real representation of parameters
-
 	int operator()() { //Return the bit at a.
 		return 0;
 	}

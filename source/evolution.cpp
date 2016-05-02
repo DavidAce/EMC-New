@@ -420,11 +420,11 @@ void crossover_snooker_old(population &pop, inData& in) {
 
 	ArrayXi selected(3); //Guy 0 is "x_i", 1 is "x_R0" and 2 is "x_R1";
 	rndChoice(selected.data(), 3, N - 1);
-	ParametrizedLine<double, nGenes> reference
-	= ParametrizedLine<double, nGenes>::Through(pop.guys[selected(1)].genome.parameters, 
+	ParametrizedLine<double, Dynamic> reference
+	= ParametrizedLine<double, Dynamic>::Through(pop.guys[selected(1)].genome.parameters, 
 												pop.guys[selected(2)].genome.parameters);
-	ParametrizedLine<double, nGenes> line
-	= ParametrizedLine<double, nGenes>::Through(pop.guys[selected(0)].genome.parameters,
+	ParametrizedLine<double, Dynamic> line
+	= ParametrizedLine<double, Dynamic>::Through(pop.guys[selected(0)].genome.parameters,
 												pop.guys[selected(0)].genome.parameters + reference.direction().array());
 
 	//Vary r to find the walls of the parameter domain
@@ -479,22 +479,24 @@ void crossover_snooker(population &pop, inData& in) {
 
 	ArrayXi selected(2); //Guy 0 is "x_i", 1 is x_j, "anchor";
 	rndChoice(selected.data(), 2, N - 1);
-	ParametrizedLine<double, nGenes> line
-	= ParametrizedLine<double, nGenes>::Through(pop.guys[selected(1)].genome.parameters, //1 is higher on the ladder (worse)
-												pop.guys[selected(0)].genome.parameters);
+	// ParametrizedLine<double, 12> line
+	// = ParametrizedLine<double, 12>::Through(pop.guys[selected(1)].genome.parameters, //1 is higher on the ladder (worse)
+	// 										pop.guys[selected(0)].genome.parameters);
+	pop.line = pop.line.Through(pop.guys[selected(1)].genome.parameters, //1 is higher on the ladder (worse)
+											pop.guys[selected(0)].genome.parameters);
 	//Distance in terms of r between guys
-	double distance = line.projection(pop.guys[selected(0)].genome.parameters).norm();
+	double distance = pop.line.projection(pop.guys[selected(0)].genome.parameters).norm();
 
 	//Vary r to find the walls of the parameter domain
 	double r_max = 0, r_min = 0, r = 0, step = 0.01;
 
 	//Find boundaries in terms of r
-	while ((line.pointAt(r).array() - bounds.upper_bound).maxCoeff() < 0 && (line.pointAt(-r).array() - bounds.upper_bound).maxCoeff() < 0) {
+	while ((pop.line.pointAt(r).array() - bounds.upper_bound).maxCoeff() < 0 && (pop.line.pointAt(-r).array() - bounds.upper_bound).maxCoeff() < 0) {
 		r_max = r;
 		r += step;
 	}
 	r = 0;
-	while ((line.pointAt(r).array() - bounds.lower_bound).minCoeff() > 0 && (line.pointAt(-r).array() - bounds.lower_bound).minCoeff() > 0) {
+	while ((pop.line.pointAt(r).array() - bounds.lower_bound).minCoeff() > 0 && (pop.line.pointAt(-r).array() - bounds.lower_bound).minCoeff() > 0) {
 		r_min = r;
 		r -= step;
 	}
@@ -510,7 +512,7 @@ void crossover_snooker(population &pop, inData& in) {
 										fmax(r_min, r_max),
 										0,
 										distance/2.0);
-		pop.snookerGuys[i].genome.set_parameters(line.pointAt(r_point(i)).array());
+		pop.snookerGuys[i].genome.set_parameters(pop.line.pointAt(r_point(i)).array());
 		pop.snookerGuys[i].H = fitnessTest(pop.snookerGuys[i], in);
 		pop.snookerGuys[i].t = pop.guys[selected(0)].t;
 	}

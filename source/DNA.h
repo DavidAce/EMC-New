@@ -4,6 +4,7 @@
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
 #include <bitset>
+#include <memory>
 #include <iostream>
 
 
@@ -17,13 +18,15 @@ private:
 public:
 	DNA ();
 	DNA(bool);
-	bitset<geneLength> chromosomes[nGenes]; //Binary representation
+	//bitset<geneLength> chromosomes[nGenes]; //Binary representation
+	//unique_ptr<bitset<geneLength>[]>	chromosomes; //Binary representation
+	vector<bitset<geneLength>> chromosomes; //Binary representation
 	ArrayXd parameters;						//Decimal representation
 
 	bool operator == (DNA&);
 	int operator()(int); 
 	friend ostream &operator<<(std::ostream &os, DNA const &);
-	int length = geneLength*nGenes;
+	// int length = geneLength*nGenes;
 	void flip_loci(const int);
 	void flip_loci(Ref<ArrayXi>);
 	void copy_loci(const int, const int);

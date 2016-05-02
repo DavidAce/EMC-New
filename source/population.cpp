@@ -107,11 +107,15 @@ void population::copy(personality &destination, personality &source) {
 	destination.t					= source.t;
 	destination.genome.parameters	= source.genome.parameters;
 	destination.value				= source.value;
-	std::copy(destination.genome.chromosomes, destination.genome.chromosomes + nGenes, source.genome.chromosomes);
+	destination.genome.chromosomes  = source.genome.chromosomes;
+
+	// std::copy(destination.genome.chromosomes, destination.genome.chromosomes + nGenes, source.genome.chromosomes);
 }
 
 void population::copy(DNA &destination, DNA &source) {
-	std::copy(destination.chromosomes, destination.chromosomes + nGenes, source.chromosomes);
+	destination.chromosomes  = source.chromosomes;
+
+	// std::copy(destination.chromosomes, destination.chromosomes + nGenes, source.chromosomes);
 }
 
 void population::wakeUpPop(inData &in) {

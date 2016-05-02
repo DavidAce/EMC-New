@@ -37,7 +37,8 @@ using namespace Eigen;
 using namespace std;
 using namespace constants;
 
-
+int constants::nGenes;
+int constants::genomeLength;
 void inData::ReadDataSize(ifstream &fp, size_t &cols, size_t &rows) {
 	string line;
 	getline(fp, line);
@@ -119,6 +120,8 @@ inData::inData(const int argc,const char **argv) :	num_files	(argc-1),
 	bounds.all_bounds  = data[i];
 	bounds.lower_bound = bounds.all_bounds.col(0);
 	bounds.upper_bound = bounds.all_bounds.col(1);
+	constants::nGenes = data[i].rows();
+	constants::genomeLength = nGenes*geneLength;
 }
 
 

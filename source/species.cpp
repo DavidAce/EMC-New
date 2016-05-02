@@ -87,7 +87,10 @@ void species::copy(personality &destination, personality &source) {
 	destination.t = source.t;
 	destination.genome.parameters = source.genome.parameters;
 	destination.value = source.value;
-	std::copy(destination.genome.chromosomes, destination.genome.chromosomes + nGenes, source.genome.chromosomes);
+	destination.genome.chromosomes = source.genome.chromosomes;
+	// std::copy(destination.genome.chromosomes, destination.genome.chromosomes + nGenes, source.genome.chromosomes);
+	//std::copy(destination.genome.chromosomes.begin(), destination.genome.chromosomes.end(), source.genome.chromosomes);
+
 }
 
 

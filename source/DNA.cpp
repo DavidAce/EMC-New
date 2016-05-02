@@ -1,6 +1,8 @@
 #include <bitset>
 #include <iostream>
 #include <random>
+#include <memory>
+
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
 #include "constants.h"
@@ -77,7 +79,7 @@ void DNA::set_parameter(const int i, const double p) {
 	parameters(i) = p;
 	chromosomes[i] = dec2bin(i);
 }
-
+				
 void DNA::update_parameters() {
 	for (int i = 0; i < nGenes; i++) {
 		parameters(i) = bin2dec(i);
@@ -92,13 +94,28 @@ void DNA::set_parameters(Ref<ArrayXd> p) {
 	}
 }
 DNA::DNA(bool) {
+	chromosomes.resize(nGenes);
 	parameters.resize(nGenes);
 }
 
-DNA::DNA() {
+DNA::DNA()  {
+	chromosomes.resize(nGenes);
 	parameters.resize(nGenes);
 	for (int i = 0; i < nGenes; i++) {
 		parameters(i) = uniform_double(&rng, bounds.lower_bound(i),bounds.upper_bound(i));
 		chromosomes[i] = dec2bin(i);
 	}
 }
+// DNA::DNA(bool): chromosomes (new bitset<geneLength>[nGenes]) {
+// 	//chromosomes.resize(nGenes);
+// 	parameters.resize(nGenes);
+// }
+
+// DNA::DNA() : 	chromosomes (new bitset<geneLength>[nGenes]) {
+// 	//chromosomes.resize(nGenes);
+// 	parameters.resize(nGenes);
+// 	for (int i = 0; i < nGenes; i++) {
+// 		parameters(i) = uniform_double(&rng, bounds.lower_bound(i),bounds.upper_bound(i));
+// 		chromosomes[i] = dec2bin(i);
+// 	}
+// }
