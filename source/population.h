@@ -27,8 +27,8 @@ public:
 	personality snookerGuys[r_num];// (r_num, personality(true));//Make an array of r_num snooker guys
 	int generation;				  //Number of generations for this population
 	int population_number;		  //Which number this instance is in a species
-	ParametrizedLine<double, 12> line; //Line for doing the snooker crossover
-
+	extern ParametrizedLine<double, Dynamic> line; //Line for doing the snooker crossover
+	
 	void copy(personality&, personality&);
 	void copy(DNA&, DNA&);
 	void getFitness(personality&, inData&);

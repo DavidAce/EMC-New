@@ -13,8 +13,8 @@ namespace constants {
 	const int geneLength		= 12;				//Number of bits per gene (The number of possible values for a parameter is 2^geneLength-1)
 	//const int nGenes 			= 12;				//Set this as the number of parameters in your model
 	//const int genomeLength 		= nGenes*geneLength;//Number of bits for all genes
-	extern int nGenes 			;				//Set this as the number of parameters in your model
-	extern int genomeLength 	;					//Number of bits for all genes
+	extern int nGenes;						//Set this as the number of parameters in your model
+	extern int genomeLength;					//Number of bits for all genes
 	const int generations 		= (int)1e4;			//Number of generations to run the simulation
 	const double Tmin 			= 0.0001;			//Minimum temperature of the ladder. Preferrably between close to 1
 	const double Tmax 			= 50;				//Maximum temperature of the ladder. Preferrably around H_max
