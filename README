@@ -3,12 +3,17 @@ Compilation :   Use " make " to generate the binary "EMC".
 
 
 Excecution  :   Use " EMC [file0] [file1] [...] [fileN] " to execute the 
-                binary EMC with the listed input files.
-                Put your input files in a folder "./indata/. 
+                binary EMC with your own input files listed.
+                Put your input files in a folder "./indata/" 
                 
                 Example: EMC my_file1.dat my_file2.dat boundaries.dat
 
-                The file run.sh is a bash script that helps with this.
+                All files are optional, except the one containing the
+                boundaries of your parameter space, which is
+                mandatory. See format below.
+                Optional files may be used for computation of the fitness.
+                
+                The file run.sh is a bash script for execution.
                  
                 
 File format:    Files can contain tab-delimited matrices of size n x m
