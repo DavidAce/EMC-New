@@ -39,7 +39,7 @@ int main(int argc, const char **argv) {
 	sp.count.simulation_tic = high_resolution_clock::now();
 	// sp.count.evolution_tic = clock();				//Start timer
 	#pragma omp parallel
-	while (sp.count.generation < generations &&  sp.champion_fitness() > 1e-8) {
+	while (sp.count.generation < generations &&  sp.champion_fitness() > lowest_H) {
 		#pragma omp single nowait
 		{
 		sp.print_progress();

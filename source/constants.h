@@ -14,7 +14,7 @@ namespace constants {
 	extern int nGenes;								//Number of parameters in your model. This is set in datafiles.cpp, inData::inData
 	extern int genomeLength;						//Number of bits for all genes, This is set in datafiles.cpp, inData::inData
 	const int generations 		= (int)5e5;			//Number of generations to run the simulation
-	
+	const double lowest_H		= 1e-8;				//Terminate the program if this fitness is achieved (0 means perfect fitness).
 	
 	//======================================//
 	//		DO NOT MODIFY VALUES BELOW!		//

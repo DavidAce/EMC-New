@@ -55,7 +55,7 @@ int species::champion_number() {
 
 void species::print_progress(){
 	count.generation++;
-	if (mod(count.generation, 500) == 0) {
+	if (mod(count.generation, 1000) == 0) {
 		cout << fixed << setprecision(9);
 		cout << "\rGeneration... " << setw(7) << count.generation << " | Best Fitness H: ";
 		for (int m = 0; m < M; m++) {
