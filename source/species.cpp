@@ -56,10 +56,11 @@ int species::champion_number() {
 void species::print_progress(){
 	count.generation++;
 	if (mod(count.generation, 500) == 0) {
-		cout << fixed << setprecision(4);
+		cout << fixed << setprecision(9);
 		cout << "\rGeneration... " << setw(7) << count.generation << " | Best Fitness H: ";
 		for (int m = 0; m < M; m++) {
-			cout << setw(7) << pop[m].bestguys[N_best - 1].H << " ";
+			cout << setw(10) << pop[m].bestguys[N_best - 1].H << " ";
+			//cout << setw(9) << pop[m].guys[N - 1].H << " ";
 		}
 		cout << flush;
 		/*cout << " | H best: " << setw(7) << pop.bestguys[N_best - 1].H;
@@ -82,7 +83,7 @@ void species::zero_counters() {
 }
 
 void species::copy(personality &destination, personality &source) {
-	destination.generation = source.generation;
+	destination.born = source.born;
 	destination.H = source.H;
 	destination.t = source.t;
 	destination.genome.parameters = source.genome.parameters;
@@ -95,7 +96,7 @@ void species::copy(personality &destination, personality &source) {
 
 
 species::species(const int argc, const char **argv) : in(argc, argv)
-{
+{	
 	zero_counters();
 	wakeUpAll();
 }

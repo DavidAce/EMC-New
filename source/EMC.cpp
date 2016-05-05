@@ -38,17 +38,24 @@ int main(int argc, const char **argv) {
 	//Start algorithm
 	sp.count.simulation_tic = high_resolution_clock::now();
 	// sp.count.evolution_tic = clock();				//Start timer
-	while (sp.count.generation < generations &&  sp.champion_fitness() > 0.001) {
+	#pragma omp parallel
+	while (sp.count.generation < generations &&  sp.champion_fitness() > 1e-8) {
+		#pragma omp single nowait
+		{
 		sp.print_progress();
 		if (uniform_double(&rng, 0, 1) < qmig) {
 			migration(sp);
 		}
-		else {
-			#pragma omp parallel for
-			for (int i = 0; i < M; i++) {
-				evolve(sp.pop[i], sp.in); 			//Evolve all the populations
-			}
 		}
+		#pragma omp for nowait
+		for (int i = 0; i < M; i++) {
+			evolve(sp.pop[i], sp.in); 			//Evolve all the populations
+			//cout << sp.pop[0] <<endl;
+
+		}
+		
+
+		
 	}
 
 	//sp.count.evolution_time += (double)(sp.count.evolution_toc - sp.count.evolution_tic) / CLOCKS_PER_SEC; //Collect computation time

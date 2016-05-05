@@ -63,30 +63,7 @@ void population::wakeUpBest() {
 
 	}
 }
-void population::wakeUpSnookerGuys() {
-	int i;
-	int j = 0;
-	int copied_guys[r_num];
-	double lowest_H;
-	int lowest_i = 0; //The position i on the temperature ladder of the guy with lowest H
-	while (j < r_num) {
-		lowest_H = 1e10;
-		//Find the best guy yet among guys
-		for (i = 0; i < N; i++) {
-			//Check if i is in skip-list
-			if (isvalueinarray(i, copied_guys, r_num) == 1) { continue; }
-			if (guys[i].H < lowest_H) {
-				lowest_H = guys[i].H;
-				lowest_i = i;
-			}
-		}
-		//By now we should have a winner, copy him to bestguys and add him to skiplist
-		copy(bestguys[r_num - j - 1], guys[lowest_i]);
-		copied_guys[j] = lowest_i;
-		j++;
 
-	}
-}
 
 void population::getFitness4All(inData &in) {
 	for (int i = 0; i < N; i++) {
@@ -102,7 +79,7 @@ void population::getFitness(personality& guy, inData &in) {
 
 
 void population::copy(personality &destination, personality &source) {
-	destination.generation			= source.generation;
+	//destination.born				= source.born;
 	destination.H					= source.H;
 	destination.t					= source.t;
 	destination.genome.parameters	= source.genome.parameters;
@@ -121,7 +98,6 @@ void population::copy(DNA &destination, DNA &source) {
 void population::wakeUpPop(inData &in) {
 	wakeUpGuys();
 	getFitness4All(in);
-
 	for (int i = 0; i < N; i++) {
 		copy(newguys[i], guys[i]);
 	}

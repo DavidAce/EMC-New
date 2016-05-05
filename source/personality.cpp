@@ -20,10 +20,10 @@ std::ostream &operator<<(std::ostream &os, personality const &guy) {
 	}
 	return os;
 }
-personality::personality() : generation(0) {
+personality::personality() : born(0) {
 }
 
-personality::personality(bool dna) : generation(0), genome(dna) {
+personality::personality(bool dna) : born(0), genome(dna) {
 
 }
 

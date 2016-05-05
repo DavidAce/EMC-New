@@ -86,7 +86,7 @@ void DNA::update_parameters() {
 	}
 }
 
-void DNA::set_parameters(Ref<ArrayXd> p) {
+void DNA::set_parameters(const ArrayXd &p) {
 	//Set all parameters at once with an ArrayXd
 	parameters = p;
 	for (int i = 0; i < nGenes; i++) {

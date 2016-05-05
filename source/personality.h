@@ -24,7 +24,7 @@ public:
 	double H;							//Fitness, or energy
 	double t; 							//temperature
 	double value;						//Actual fitting-value
-	int generation;						//Generation when DNA first emerged
+	int born;							//Generation when DNA first emerged
 	DNA genome;							//Contains binary and real representation of parameters
 	int operator()() { //Return the bit at a.
 		return 0;

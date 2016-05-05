@@ -6,7 +6,7 @@
         },
         {
             "name": "Linux",
-            "includePath": ["/usr/include"]
+            "includePath": ["/usr/include", "/media/david/Ecomint/Git Repos/EMC-New/Eigen"]
             
         },
         {

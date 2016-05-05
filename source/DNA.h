@@ -31,7 +31,7 @@ public:
 	void flip_loci(Ref<ArrayXi>);
 	void copy_loci(const int, const int);
 	void set_parameter(const int,const double);
-	void set_parameters(Ref<ArrayXd>);
+	void set_parameters(const ArrayXd &);
 	void update_parameters();
 	
 

@@ -31,7 +31,7 @@ private:
 public:
 	species(const int, const char **) ;
 	inData in;				//Experimental data for minimization
-	population pop[M];	//Array of separate populations to evolve independently
+	population pop[M];		//Array of separate populations to evolve independently
 	outData out;			//Experimental data for minimization
 	counters count;
 	double champion_fitness();

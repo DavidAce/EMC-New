@@ -147,7 +147,7 @@ void outData::print_to_file(population &pop, int &m) {
 		guysData[m] << right << setw(MAXWIDTH) << std::setfill(' ') << pop.guys[i].value
 					<< right << setw(MAXWIDTH) << std::setfill(' ')	<< pop.guys[i].H
 					<< right << setw(MAXWIDTH) << std::setfill(' ')	<< pop.guys[i].t
-					<< right << setw(MAXWIDTH) << std::setfill(' ')	<< pop.guys[i].generation << endl;
+					<< right << setw(MAXWIDTH) << std::setfill(' ')	<< pop.guys[i].born << endl;
 	}
 	for (i = 0; i < N_best; i++) {
 		for (j = 0; j < nGenes; j++) {
@@ -156,7 +156,7 @@ void outData::print_to_file(population &pop, int &m) {
 		eliteGuysData[m]<< right << setw(MAXWIDTH) << std::setfill(' ') << pop.bestguys[i].value
 						<< right << setw(MAXWIDTH) << std::setfill(' ') << pop.bestguys[i].H
 						<< right << setw(MAXWIDTH) << std::setfill(' ') << pop.bestguys[i].t
-						<< right << setw(MAXWIDTH) << std::setfill(' ') << pop.bestguys[i].generation << endl;
+						<< right << setw(MAXWIDTH) << std::setfill(' ') << pop.bestguys[i].born << endl;
 	}
 	guysData[m].close();
 	eliteGuysData[m].close();
