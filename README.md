@@ -3,12 +3,12 @@ This program finds the global minimum in a general parameter
 space.
 
 ## Compilation 
-Use " make " to generate the binary "EMC". 
+Use `make` to generate the binary "EMC". 
 Use " make clean " to clean old object files.
 
 
 ## Excecution  
-Use " EMC [file0] [file1] [...] [fileN] " to execute the 
+Use `EMC file0 file1 ... fileN` to execute the 
 binary EMC with your own input files listed.
 Put your input files in a folder "./indata/".
 The file run.sh is a bash script for execution.
@@ -28,13 +28,13 @@ Optional files may be used for computation of the fitness.
 ## File format
 Files can contain tab-delimited matrices of size n x m
 (n = rows, m = columns).
-A matrix from [file0] is accessible from within the 
-program as  "in.data[0]"  , which is a pointer to
+A matrix from `file0` is accessible from within the 
+program as  `in.data[0]`  , which is a pointer to
 an Eigen-type matrix, MatrixXd.
     
 ##### Example
 To get element in row 2 and column 5 from 
-[file1], you may write:
+`file1`, you may write:
                 
         double my_number = in.data[1](2,5);
                        
@@ -42,13 +42,13 @@ See the Quick Reference to Eigen syntax here:
 https://eigen.tuxfamily.org/dox-devel/AsciiQuickReference.txt
 
 
-The last argument [fileN] must always contain the domain
+The last argument `fileN` must always contain the domain
 boundary in two columns. The first column is the lower 
 bound, and the second is the upper bound.
 There must be as many rows as parameters for the fit!
 
 ##### Example 
-If parameters sigma, mu, rho are to be minimized
+If parameters `sigma`, `mu`, `rho` are to be minimized
 in a 3D cube parameter space. Then boundaries.dat may 
 contain (tab delimited):
                         
@@ -58,6 +58,6 @@ contain (tab delimited):
 
 
 ## Constants
-See the file "constants.h". In particular, the 
+See the file `constants.h`. In particular, the 
 variable "int generations" controls the maximum duration
 of the simulation (default 500000).
