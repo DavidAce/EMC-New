@@ -5,14 +5,14 @@
 #include <time.h>
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "constants.h"
-#include "mymath.h"
-#include "minimization.h"
-#include "DNA.h"
-#include "datafiles.h"
-#include "population.h"
-#include "evolution.h"
-#include "species.h"
+#include "constants.hpp"
+#include "mymath.hpp"
+#include "minimization.hpp"
+#include "DNA.hpp"
+#include "datafiles.hpp"
+#include "population.hpp"
+#include "evolution.hpp"
+#include "species.hpp"
 
 
 using namespace std;

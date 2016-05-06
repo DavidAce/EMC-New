@@ -4,7 +4,7 @@
 #include <iostream>
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "personality.h"
+#include "personality.hpp"
 using namespace std;
 using namespace constants;
 using namespace Eigen;

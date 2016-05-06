@@ -1,6 +1,7 @@
 #include <random>
-#include "randomFunctions.h"
+#include "randomFunctions.hpp"
 
+using namespace std;
 
 double uniform_double(RNGType *rn, const double lowerLimit, const double upperLimit) {
 	uniform_real_distribution<> dice(lowerLimit, upperLimit);

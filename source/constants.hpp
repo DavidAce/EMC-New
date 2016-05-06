@@ -2,7 +2,7 @@
 #define CONSTANTS_H   //  #define this so the compiler knows it has been included
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "mymath.h"
+#include "mymath.hpp"
 using namespace std;
 using namespace Eigen;
 namespace constants {

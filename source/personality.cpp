@@ -1,13 +1,12 @@
 #include <bitset>
 #include <iostream>
 #include <random>
+#include "constants.hpp"
+#include "randomFunctions.hpp"
+#include "DNA.hpp"
+#include "personality.hpp"
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "constants.h"
-#include "randomFunctions.h"
-#include "DNA.h"
-#include "personality.h"
-
 
 using namespace std;
 using namespace constants;

@@ -8,13 +8,13 @@
 #include <vector>
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "constants.h"
-#include "mymath.h"
-#include "DNA.h"
-#include "personality.h"
-#include "population.h"
-#include "species.h"
-#include "datafiles.h"
+#include "constants.hpp"
+#include "mymath.hpp"
+#include "DNA.hpp"
+#include "personality.hpp"
+#include "population.hpp"
+#include "species.hpp"
+#include "datafiles.hpp"
 #ifdef __linux__
 #define os 0
 #elif _WIN32

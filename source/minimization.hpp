@@ -8,9 +8,9 @@
 #include <time.h>
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "constants.h"
-#include "personality.h"
-#include "datafiles.h"
+#include "constants.hpp"
+#include "personality.hpp"
+#include "datafiles.hpp"
 
 using namespace std;
 using namespace constants;

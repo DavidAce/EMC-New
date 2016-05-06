@@ -2,8 +2,8 @@
 #ifndef EVOLUTION_H
 #define EVOLUTION_H  
 
-#include "datafiles.h"
-#include "personality.h"
+#include "datafiles.hpp"
+#include "personality.hpp"
 //#include "population.h"
 
 class population;	//Forward declaration

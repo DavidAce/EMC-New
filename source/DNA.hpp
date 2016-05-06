@@ -5,8 +5,9 @@
 #include "../Eigen/Core"
 #include <bitset>
 #include <memory>
+#include <vector>
 #include <iostream>
-
+#include "constants.hpp"
 
 using namespace std;
 using namespace constants;
@@ -20,9 +21,8 @@ public:
 	DNA(bool);
 	//bitset<geneLength> chromosomes[nGenes]; //Binary representation
 	//unique_ptr<bitset<geneLength>[]>	chromosomes; //Binary representation
-	vector<bitset<geneLength>> chromosomes; //Binary representation
+	vector< bitset<geneLength> > chromosomes; //Binary representation
 	ArrayXd parameters;						//Decimal representation
-
 	bool operator == (DNA&);
 	int operator()(int); 
 	friend ostream &operator<<(std::ostream &os, DNA const &);

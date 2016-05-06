@@ -13,15 +13,15 @@
 #include <fstream>
 #include <bitset>
 #include <chrono>
-#include "constants.h"
-#include "randomFunctions.h"
-#include "mymath.h"
-#include "DNA.h"
-#include "personality.h"
-#include "population.h"
-#include "species.h"
-#include "datafiles.h"
-#include "evolution.h"
+#include "constants.hpp"
+#include "randomFunctions.hpp"
+#include "mymath.hpp"
+#include "DNA.hpp"
+#include "personality.hpp"
+#include "population.hpp"
+#include "species.hpp"
+#include "datafiles.hpp"
+#include "evolution.hpp"
 using namespace Eigen;
 using namespace std;
 using namespace constants;

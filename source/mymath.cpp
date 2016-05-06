@@ -1,7 +1,7 @@
 #include <math.h>
 #include <iostream>
-#include "randomFunctions.h"
-#include "mymath.h"
+#include "randomFunctions.hpp"
+#include "mymath.hpp"
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
 using namespace Eigen;

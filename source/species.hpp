@@ -5,9 +5,9 @@
 #include <chrono>
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "personality.h"
-#include "population.h"
-#include "datafiles.h"
+#include "personality.hpp"
+#include "population.hpp"
+#include "datafiles.hpp"
 using namespace std::chrono;
 
 typedef std::chrono::high_resolution_clock Clock;

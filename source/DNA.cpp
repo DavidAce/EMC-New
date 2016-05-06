@@ -3,12 +3,12 @@
 #include <random>
 #include <memory>
 
+
+#include "constants.hpp"
+#include "randomFunctions.hpp"
+#include "DNA.hpp"
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "constants.h"
-#include "randomFunctions.h"
-#include "DNA.h"
-
 
 
 using namespace std;

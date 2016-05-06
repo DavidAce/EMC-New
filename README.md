@@ -1,4 +1,5 @@
-Compilation :   Use " make " to generate the binary "EMC". 
+# Compilation 
+                Use " make " to generate the binary "EMC". 
                 Use " make clean " to clean old object files.
 
 

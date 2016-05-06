@@ -4,10 +4,10 @@
 #include <bitset>
 #include <iostream>
 #include <random>
+#include "constants.hpp"
+#include "DNA.hpp"
 #include "../Eigen/Dense"
 #include "../Eigen/Core"
-#include "constants.h"
-#include "DNA.h"
 
 using namespace std;
 using namespace constants;
