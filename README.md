@@ -4,6 +4,7 @@ space by combining Genetic algorithms and Monte Carlo
 algorithms. 
 
 References:
+
 [On learning strategies for evolutionary Monte Carlo](http://www.people.fas.harvard.edu/~junliu/TechRept/07folder/Goswami%26Liu07.pdf)
 
 [Evolutionary Monte Carlo for protein folding simulations](http://users.phhp.ufl.edu/faliang/papers/2001/JCP2D.pdf)
@@ -12,17 +13,17 @@ References:
 
 ## Usage
 The files `source/minimization.hpp` and `source/minimization.cpp`
-has the function `fitnessTest()` which is used to map an n-dimensional
+have the function `fitnessTest()` which is used to map an n-dimensional
 point in your parameter space, called a *chromosome*,
 to scalar `H`, called the *fitness*. You will have to re-write this 
 function to suit your minimizing needs. Since this function is called **many**
-times it is important to write fast code. Do **not** use openMP as it is
-already used 
+times it is important to write fast code. Do **not** use OpenMP as it is
+already used on the outer loop that calls `fitnessTest()`.
 
 ### The default program
 If you compile and run the program *as is*, it will try to find
 the 12 coefficients of a bivariate polynomial that maps the coordinates
-in `indata/xy_old.dat` to  `indata/xy_new.dat`. This type of problem is 
+in `indata/xy_old.dat` into `indata/xy_new.dat`. This type of problem is 
 found in cartography when one needs a recipe that stretches one
 geographical map into another, that may come from a different projection.
 All coefficients should approximate the value `2` if the program is working correctly.
@@ -76,12 +77,12 @@ There must be as many rows as parameters for the fit!
 
 ##### Example 
 If parameters `sigma`, `mu`, `rho` are to be minimized
-in a 3D cube parameter space. Then boundaries.dat may 
-contain (tab delimited):
+in a 3D cube parameter space with volume `64`, centered at origo,
+then boundaries.dat may contain (tab delimited):
                         
-                -1  3.5
-                10  20
-                2   5
+                -2  2
+                -2  2
+                -2  2
 
 
 ## Constants
