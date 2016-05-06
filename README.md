@@ -1,10 +1,14 @@
 # Evolutionary Monte Carlo (EMC)
 This program finds the global minimum in a general parameter
-space.
+space by combining Genetic algorithms and Monte Carlo 
+algorithms. 
 
+Read more here:
+[Evolutionary Monte Carlo for protein folding simulations](http://users.phhp.ufl.edu/faliang/papers/2001/JCP2D.pdf)
+[Real-parameter evolutionary Monte Carlo with applications to Bayesian mixture models](http://users.phhp.ufl.edu/faliang/papers/2001/RealEMC.pdf)
 ## Compilation 
-Use `make` to generate the binary "EMC". 
-Use " make clean " to clean old object files.
+Use `make` to generate the binary `EMC`. 
+Use `make clean ` to clean old object files.
 
 
 ## Excecution  
