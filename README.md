@@ -3,18 +3,39 @@ This program finds the global minimum in a general parameter
 space by combining Genetic algorithms and Monte Carlo 
 algorithms. 
 
-Read more here:
+References:
+[On learning strategies for evolutionary Monte Carlo](http://www.people.fas.harvard.edu/~junliu/TechRept/07folder/Goswami%26Liu07.pdf)
 
 [Evolutionary Monte Carlo for protein folding simulations](http://users.phhp.ufl.edu/faliang/papers/2001/JCP2D.pdf)
 
 [Real-parameter evolutionary Monte Carlo with applications to Bayesian mixture models](http://users.phhp.ufl.edu/faliang/papers/2001/RealEMC.pdf)
+
+## Usage
+The files `source/minimization.hpp` and `source/minimization.cpp`
+has the function `fitnessTest()` which is used to map an n-dimensional
+point in your parameter space, called a *chromosome*,
+to scalar `H`, called the *fitness*. You will have to re-write this 
+function to suit your minimizing needs. Since this function is called **many**
+times it is important to write fast code. Do **not** use openMP as it is
+already used 
+
+### The default program
+If you compile and run the program *as is*, it will try to find
+the 12 coefficients of a bivariate polynomial that maps the coordinates
+in `indata/xy_old.dat` to  `indata/xy_new.dat`. This type of problem is 
+found in cartography when one needs a recipe that stretches one
+geographical map into another, that may come from a different projection.
+All coefficients should approximate the value `2` if the program is working correctly.
+
 ## Compilation 
-Use `make` to generate the binary `EMC`. 
-Use `make clean ` to clean old object files.
+In a linux terminal, enter `make` to generate the binary `EMC`. 
+Enter `make clean ` to clean old object files.
+The program has been tested with g++ version 5.3.0, 
+but should work with anything later than g++ 4.9.
 
 
 ## Excecution  
-Use `EMC file0 file1 ... fileN` to execute the 
+Enter `./EMC file0 file1 ... fileN` to execute the 
 binary EMC with your own input files listed.
 Put your input files in a folder "./indata/".
 The file run.sh is a bash script for execution.
@@ -27,7 +48,7 @@ on the argument list.
 Optional files may be used for computation of the fitness.
                 
 ##### Example
-        EMC my_file1.dat my_file2.dat boundaries.dat
+        ./EMC my_file1.dat my_file2.dat boundaries.dat
 
                  
                 
