@@ -9,16 +9,14 @@ namespace constants {
 	//Evolutionary parameters
 	const int M					= 8;				//Number of populations in a species
 	const int N 				= 20;				//Number of individuals per population
-	const int N_best			= 5;				//Number of individuals in "hall of fame". Best individuals of all time
+	const int N_best			= 5;				//Number of individuals in "hall of fame". Best individuals of all time (per population)
 	const int geneLength		= 24;				//Number of bits per gene (The number of possible values for a parameter is 2^geneLength-1)
 	extern int nGenes;								//Number of parameters in your model. This is set in datafiles.cpp, inData::inData
 	extern int genomeLength;						//Number of bits for all genes, This is set in datafiles.cpp, inData::inData
 	const int generations 		= (int)5e5;			//Number of generations to run the simulation
 	const double lowest_H		= 1e-8;				//Terminate the program if this fitness is achieved (0 means perfect fitness).
 	
-	//======================================//
-	//		DO NOT MODIFY VALUES BELOW!		//
-	//======================================//
+
 	
 	const double Tmin 			= 0.0001;			//Minimum temperature of the ladder. Preferrably between close to 1
 	const double Tmax 			= 50;				//Maximum temperature of the ladder. Preferrably around H_max

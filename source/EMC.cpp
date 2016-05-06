@@ -32,7 +32,7 @@ boundaries bounds;
 int main(int argc, const char **argv) {
 	//Start up some files and folder for saving out
 	Eigen::initParallel();
-	omp_set_num_threads(8);
+	//omp_set_num_threads(8);
 	species sp(argc,argv);
 	rng.seed(6);
 	//Start algorithm

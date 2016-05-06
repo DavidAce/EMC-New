@@ -15,10 +15,19 @@ References:
 The files `source/minimization.hpp` and `source/minimization.cpp`
 have the function `fitnessTest()` which is used to map an n-dimensional
 point in your parameter space, called a *chromosome*,
-to scalar `H`, called the *fitness*. You will have to re-write this 
+to scalar `H`, called the *fitness* (or energy). You will have to re-write this 
 function to suit your minimizing needs. Since this function is called **many**
 times it is important to write fast code. Do **not** use OpenMP as it is
 already used on the outer loop that calls `fitnessTest()`.
+
+Ideally you should aim for H to be small, no larger than 50, say, since differences
+in H are present in many Boltzmann weight exponentials, as in `exp((H_new - H_old)/T)`.
+
+If H can become very large, I suggest you leave the function that is already present:
+
+        	H = -1 / log(H + log_param) + log_const + pow(log( 1/(H + 1)), 2);
+
+which basically gives your parameter hypersurface a good shape for the minimization process.
 
 ### The default program
 If you compile and run the program *as is*, it will try to find
@@ -86,6 +95,19 @@ then boundaries.dat may contain (tab delimited):
 
 
 ## Constants
-See the file `constants.h`. In particular, the 
-variable "int generations" controls the maximum duration
-of the simulation (default 500000).
+See the file `constants.h`. In particular, set the following
+variables to your liking: 
+
+`int M` sets the number of parallel subpopulations. Preferrably this
+number should be the same as the number cpu-threads available for OpenMP.
+(Usually 4 to 8, depending on your cpu).
+
+
+
+`int generations` controls the maximum duration
+of the simulation (default `500000`). 
+
+`double lowest_H` sets threshold for the lowest fitness. If
+any fitness is lower than `lowest_H` the program will terminate.
+
+
