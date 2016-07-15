@@ -15,10 +15,8 @@ References:
 From a Linux terminal type
 
 		make
-		./run.sh
-                
-The `run.sh` script will excecute the binary with arguments as
 		./EMC xy_old.dat xy_new.dat boundaries.dat
+                		
 
 ## Usage
 The files `source/minimization.hpp` and `source/minimization.cpp`
