@@ -1,5 +1,6 @@
 obj/
 .vscode/
+.vscode/.browse.VC.db
 outdata/
 GPATH
 GTAGS
