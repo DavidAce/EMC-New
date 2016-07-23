@@ -4,8 +4,8 @@
 #include <memory>
 #include <string>
 #include <fstream>
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include "constants.hpp"
 
 using namespace std;

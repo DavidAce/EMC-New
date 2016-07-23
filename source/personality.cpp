@@ -5,8 +5,8 @@
 #include "randomFunctions.hpp"
 #include "DNA.hpp"
 #include "personality.hpp"
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 
 using namespace std;
 using namespace constants;

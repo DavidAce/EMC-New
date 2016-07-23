@@ -3,8 +3,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include <string.h>
 #include <omp.h>
 #include <random>

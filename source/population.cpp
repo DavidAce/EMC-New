@@ -2,8 +2,8 @@
 #include <string>
 #include <fstream>
 #include <time.h>
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include "constants.hpp"
 #include "mymath.hpp"
 #include "datafiles.hpp"

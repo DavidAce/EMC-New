@@ -1,8 +1,8 @@
 
 #ifndef DNA_H   // if x.h hasn't been included yet...
 #define DNA_H   //  #define this so the compiler knows it has been included
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include <bitset>
 #include <memory>
 #include <vector>

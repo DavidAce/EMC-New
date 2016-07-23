@@ -6,8 +6,8 @@
 #include <random>
 #include "constants.hpp"
 #include "DNA.hpp"
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 
 using namespace std;
 using namespace constants;

@@ -4,8 +4,8 @@
 #include <iostream>
 #include <iomanip>
 #include <time.h>
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include "../Eigen/Geometry"
 #include "constants.hpp"
 #include "randomFunctions.hpp"
@@ -89,7 +89,7 @@ inline void bitselector_smartCopy(population &pop, ArrayXi &selected, ArrayXd &n
 			//If parents loci are different: Copy the values
 			pop.newguys[selected(0)].genome.copy_loci(i, pop.guys[selected(0)].genome(i));
 			pop.newguys[selected(1)].genome.copy_loci(i, pop.guys[selected(1)].genome(i));
-
+			
 			//Reverse with probabilities p1 and p2 respectively
 			if (uniform_double(&rng, 0, 1) < P1) {
 				pop.newguys[selected(0)].genome.flip_loci(i);

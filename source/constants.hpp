@@ -1,7 +1,7 @@
 #ifndef CONSTANTS_H   // if x.h hasn't been included yet
 #define CONSTANTS_H   //  #define this so the compiler knows it has been included
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include "mymath.hpp"
 using namespace std;
 using namespace Eigen;

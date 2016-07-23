@@ -2,8 +2,8 @@
 #include <iostream>
 #include "randomFunctions.hpp"
 #include "mymath.hpp"
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 using namespace Eigen;
 using namespace std;
 void linspace(ArrayXd & array, double xi, double xf, int n) {

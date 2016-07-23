@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include "personality.hpp"
 #include "population.hpp"
 #include "datafiles.hpp"

@@ -6,8 +6,8 @@
 
 #include <iomanip>
 #include <vector>
-#include "../Eigen/Dense"
-#include "../Eigen/Core"
+#include <Eigen/Dense>
+#include <Eigen/Core>
 #include "constants.hpp"
 #include "mymath.hpp"
 #include "DNA.hpp"
