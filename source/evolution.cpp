@@ -6,7 +6,7 @@
 #include <time.h>
 #include <Eigen/Dense>
 #include <Eigen/Core>
-#include "../Eigen/Geometry"
+#include <Eigen/Geometry>
 #include "constants.hpp"
 #include "randomFunctions.hpp"
 #include "mymath.hpp"
