@@ -1,6 +1,6 @@
 obj/
 .vscode/
-.vscode/.browse.VC.db
+.idea/
 outdata/
 GPATH
 GTAGS
